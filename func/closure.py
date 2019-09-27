@@ -3,6 +3,7 @@ def count():
     fs = []
     for i in range(1, 4):
         def f():
+            # print(hex(id(i)))
             return i*i
         fs.append(f)
     return fs
@@ -11,6 +12,8 @@ def count():
 # 创建一个函数，用该函数的参数绑定循环变量当前的值，无论该循环变量后续如何更改，已绑定到函数参数的值不变
 def count_beta():
     def f(j):
+        # print(hex(id(j)))
+
         def g():
             return j*j
         return g
@@ -30,6 +33,16 @@ def create_counter():
         return i
 
     return counter
+
+
+# Todo，实现一个不用global的函数级别计数器
+def f():
+    def x():
+        if not hasattr(f, 'x'):
+            f.x = 0
+        f.x = f.x + 1
+        return f.x
+    return x
 
 
 if __name__ == '__main__':

@@ -20,7 +20,9 @@ def char2num(s):
 
 
 def str2int(s):
-    return reduce(lambda x, y: x * 10 + y, map(char2num, s))
+    L = map(char2num, s)
+    r = reduce(lambda x, y: x * 10 + y, L)
+    return r
 
 
 # Write a str2float function using map and reduce
@@ -64,3 +66,5 @@ if __name__ == "__main__":
     print(str2float('0.1234'))
     print(str2float('.1234'))
     print(str2float('120.0034'))
+    f = str2int('1234')
+    print(f)
